@@ -2,7 +2,7 @@
 #include "search_engine.h"
 #include "SearchServer.h"
 
-//using namespace N;
+using namespace N;
 
 using namespace std;
 

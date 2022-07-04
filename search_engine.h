@@ -13,11 +13,10 @@
 #include <string>
 #include <cstdlib>
 #include <cctype>
-#include <direct.h>
 #include <thread>
 #include <mutex>
-#include "gtest/gtest.h"
-#include <windows.h>
+#include <direct.h>
+#include <windows.h>}
 //#include <POSIX.h>
 
 namespace N
