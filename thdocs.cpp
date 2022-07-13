@@ -1,4 +1,4 @@
-
+﻿
 #include "search_engine.h"
 #include "thdocs.h"
 #include "InvertedIndex.h"

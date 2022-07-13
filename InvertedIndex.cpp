@@ -1,4 +1,4 @@
-
+п»ї
 #include "search_engine.h"
 
 #include "thdocs.h"
@@ -26,18 +26,18 @@ using namespace std;
 			//	std::reverse(begin(wordsVector), end(wordsVector));
 		}
 	};
-	/* Метод определяет количество вхождений слова word в загруженной базе документов
-* @param word слово, частоту вхождений которого необходимо определить
-* @return возвращает подготовленный список с частотой слов
+	/* РњРµС‚РѕРґ РѕРїСЂРµРґРµР»СЏРµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РІС…РѕР¶РґРµРЅРёР№ СЃР»РѕРІР° word РІ Р·Р°РіСЂСѓР¶РµРЅРЅРѕР№ Р±Р°Р·Рµ РґРѕРєСѓРјРµРЅС‚РѕРІ
+* @param word СЃР»РѕРІРѕ, С‡Р°СЃС‚РѕС‚Сѓ РІС…РѕР¶РґРµРЅРёР№ РєРѕС‚РѕСЂРѕРіРѕ РЅРµРѕР±С…РѕРґРёРјРѕ РѕРїСЂРµРґРµР»РёС‚СЊ
+* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕРґРіРѕС‚РѕРІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє СЃ С‡Р°СЃС‚РѕС‚РѕР№ СЃР»РѕРІ
 */
 	std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word)
 	{
-		std::vector<Entry> freq_requests; // список запросов
+		std::vector<Entry> freq_requests; // СЃРїРёСЃРѕРє Р·Р°РїСЂРѕСЃРѕРІ
 		for (map<string, vector<Entry>>::iterator it = freq_dictionary.begin(); it != freq_dictionary.end(); ++it)
 			if (word == it->first) freq_requests = it->second;
 		return freq_requests;
 	};
 //private:
-//	std::vector<std::string> docs; // список содержимого документов
-//	std::map<std::string, std::vector<Entry>> freq_dictionary; // частотный	словарь
+//	std::vector<std::string> docs; // СЃРїРёСЃРѕРє СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РґРѕРєСѓРјРµРЅС‚РѕРІ
+//	std::map<std::string, std::vector<Entry>> freq_dictionary; // С‡Р°СЃС‚РѕС‚РЅС‹Р№	СЃР»РѕРІР°СЂСЊ
 //};

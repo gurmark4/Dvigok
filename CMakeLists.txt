@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.17)
 project("search_engine" VERSION 0.1)
    
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 #find_package(nlohmann_json 3.2.0 REQUIRED)
 #find_package(nlohmann_json)
 set(JSON_BuildTests OFF CACHE INTERNAL "")
@@ -26,10 +26,17 @@ add_subdirectory(nlohmann_json)
 
 # Добавьте источник в исполняемый файл этого проекта.
 add_executable (search_engine "search_engine.cpp" "search_engine.h" "ConverterJSON.cpp" "thdocs.cpp" "thdocs.h" "InvertedIndex.cpp" "InvertedIndex.h" "SearchServer.cpp" "SearchServer.h" "ConverterJSON.h")
+# add_executable (search_engine "search_engine.cpp" "search_engine.h" "ConverterJSON.cpp" "thdocs.cpp" "thdocs.h" "InvertedIndex.cpp" "InvertedIndex.h" "SearchServer.cpp" "SearchServer.h" "ConverterJSON.h" "mTEST.cpp")
+
 target_link_libraries(search_engine PRIVATE nlohmann_json::nlohmann_json)
 
 target_link_libraries(search_engine PRIVATE gtest_main)
 include(GoogleTest)
-gtest_discover_tests(search_engine)
+gtest_discover_tests(search_engine) 
+
+# add_executable (search_engine_test "mTEST.cpp")
+# target_link_libraries(search_engine_test PRIVATE gtest_main)
+# include(GoogleTest)
+# gtest_discover_tests(search_engine_test) 
 
 # TODO: Добавьте тесты и целевые объекты, если это необходимо.

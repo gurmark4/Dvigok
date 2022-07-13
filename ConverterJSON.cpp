@@ -1,14 +1,16 @@
-
+п»ї
 #include "search_engine.h"
 #include "ConverterJSON.h"
+#include<filesystem>
 
 using namespace N;
 using namespace std;
 
+using std::filesystem::current_path;
 
 		/**
-		* Метод получения содержимого файлов
-		* @return Возвращает список с содержимым файлов перечисленных в config.json
+		* РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ С„Р°Р№Р»РѕРІ
+		* @return Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃ СЃРѕРґРµСЂР¶РёРјС‹Рј С„Р°Р№Р»РѕРІ РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… РІ config.json
 		*/
 		std::vector<std::string> ConverterJSON::GetTextDocuments()
 		{
@@ -25,21 +27,18 @@ using namespace std;
 			file_config >> dict;
 			file_config.close();
 			//========================================================
-			std::string path = "", version, prj_path, s;
+			std::string path = "", version, prj_path, s, current_work_dir;
 			size_t i, k;
+			stringstream sss;
+			cout << "Current working directory: " << current_path() << endl;
+			sss << current_path();
+			current_work_dir = sss.str();
 
-	    	char current_work_dir[FILENAME_MAX];
-			if (_getcwd(current_work_dir, sizeof(current_work_dir)) != NULL) {
-				printf("Current working directory : %s\n", current_work_dir);
-			}
-			else {
-				perror("getcwd() error");
-				//return 1;
-			}
-
-			for (i = 0; i < FILENAME_MAX; i++) {
+			path += current_work_dir[1];
+			for (i = 2; i < current_work_dir.length()-1; i++) {
 				if (current_work_dir[i] == 92) current_work_dir[i] = 47;
-				if (current_work_dir[i] > 0 && current_work_dir[i] < 256) path += current_work_dir[i];
+			//	if (current_work_dir[i] > 0 && current_work_dir[i] < 256 && current_work_dir[i-1] != 47) path += current_work_dir[i];
+				if (!(current_work_dir[i] == 47 && current_work_dir[i - 1] == 47)) path += current_work_dir[i];
 			}
 
 
@@ -63,7 +62,7 @@ using namespace std;
 			file_config.open(prj_path);
 			if (!file_config)
 			{
-				std::cout << "Файл CMakeLists.txt не открыт\n\n";
+				std::cout << "Р¤Р°Р№Р» CMakeLists.txt РЅРµ РѕС‚РєСЂС‹С‚\n\n";
 			}
 			//		else    std::cout << "Ok! File open\n\n";
 			while (!file_config.eof()) {
@@ -90,7 +89,7 @@ using namespace std;
 				fl.open(path);
 				if (!fl)
 				{
-					std::cout << "Файл не открыт\n\n";
+					std::cout << "Р¤Р°Р№Р» РЅРµ РѕС‚РєСЂС‹С‚\n\n";
 				}
 				//		else    std::cout << "Ok! File open\n\n";
 				while (!fl.eof()) {
@@ -106,8 +105,8 @@ using namespace std;
 			return docs;
 		};
 		/**
-		* Метод считывает поле max_responses для определения предельного
-		* количества ответов на один запрос
+		* РњРµС‚РѕРґ СЃС‡РёС‚С‹РІР°РµС‚ РїРѕР»Рµ max_responses РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РїСЂРµРґРµР»СЊРЅРѕРіРѕ
+		* РєРѕР»РёС‡РµСЃС‚РІР° РѕС‚РІРµС‚РѕРІ РЅР° РѕРґРёРЅ Р·Р°РїСЂРѕСЃ
 		* @return
 		*/
 		int ConverterJSON::GetResponsesLimit()
@@ -141,8 +140,8 @@ using namespace std;
 			return dict["config"]["time_update"];
 		}
 		/**
-		* Метод получения запросов из файла requests.json
-		* @return возвращает список запросов из файла requests.json
+		* РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ РёР· С„Р°Р№Р»Р° requests.json
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє Р·Р°РїСЂРѕСЃРѕРІ РёР· С„Р°Р№Р»Р° requests.json
 		*/
 		std::vector<std::string> ConverterJSON::GetRequests()
 		{
@@ -166,7 +165,7 @@ using namespace std;
 			return requests;
 		};
 		/**
-		* Положить в файл answers.json результаты поисковых запросов
+		* РџРѕР»РѕР¶РёС‚СЊ РІ С„Р°Р№Р» answers.json СЂРµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєРѕРІС‹С… Р·Р°РїСЂРѕСЃРѕРІ
 		*/
 		void ConverterJSON::putAnswers(std::vector<std::vector<RelativeIndex>>	answers)
 		{

@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "search_engine.h"
 
 using namespace N;
@@ -12,8 +12,8 @@ public:
 	void UpdateDocumentBase(std::vector<std::string> input_docs);
 	std::vector<Entry> GetWordCount(const std::string& word);
 private:
-	std::vector<std::string> docs; // список содержимого документов
-	std::map<std::string, std::vector<Entry>> freq_dictionary; // частотный	словарь
+	std::vector<std::string> docs; // СЃРїРёСЃРѕРє СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РґРѕРєСѓРјРµРЅС‚РѕРІ
+	std::map<std::string, std::vector<Entry>> freq_dictionary; // С‡Р°СЃС‚РѕС‚РЅС‹Р№	СЃР»РѕРІР°СЂСЊ
 };
 /*
 class SearchServer {

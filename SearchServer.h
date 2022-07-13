@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "search_engine.h"
 #include "InvertedIndex.h"

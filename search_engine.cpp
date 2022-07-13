@@ -14,9 +14,9 @@
 using namespace N;
 
 using namespace std;
-#if defined(_WIN32)
-#define PLATFORM_NAME "windows" // Windows
-#elif defined(_WIN64)
+#if defined(_WIN64)
+#define PLATFORM_NAME "x64" // Windows
+#elif defined(_WIN32)
 #define PLATFORM_NAME "windows" // Windows
 #elif defined(__CYGWIN__) && !defined(_WIN32)
 #define PLATFORM_NAME "windows" // Windows (Cygwin POSIX under Microsoft Window)

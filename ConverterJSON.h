@@ -1,5 +1,6 @@
-#pragma once
+п»ї#pragma once
 #include "search_engine.h"
+#include<filesystem>
 
 using namespace N;
 using namespace std;
@@ -9,24 +10,24 @@ class ConverterJSON {
 public:
 	ConverterJSON() = default;
 	/**
-	* Метод получения содержимого файлов
-	* @return Возвращает список с содержимым файлов перечисленных в config.json
+	* РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ С„Р°Р№Р»РѕРІ
+	* @return Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃ СЃРѕРґРµСЂР¶РёРјС‹Рј С„Р°Р№Р»РѕРІ РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… РІ config.json
 	*/
 	std::vector<std::string> GetTextDocuments();
 	/**
-	* Метод считывает поле max_responses для определения предельного
-	* количества ответов на один запрос
+	* РњРµС‚РѕРґ СЃС‡РёС‚С‹РІР°РµС‚ РїРѕР»Рµ max_responses РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РїСЂРµРґРµР»СЊРЅРѕРіРѕ
+	* РєРѕР»РёС‡РµСЃС‚РІР° РѕС‚РІРµС‚РѕРІ РЅР° РѕРґРёРЅ Р·Р°РїСЂРѕСЃ
 	* @return
 	*/
 int GetResponsesLimit();
 int GetTimeUpdate();
 	/**
-	* Метод получения запросов из файла requests.json
-	* @return возвращает список запросов из файла requests.json
+	* РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ РёР· С„Р°Р№Р»Р° requests.json
+	* @return РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє Р·Р°РїСЂРѕСЃРѕРІ РёР· С„Р°Р№Р»Р° requests.json
 	*/
 	std::vector<std::string> GetRequests();
 	/**
-	* Положить в файл answers.json результаты поисковых запросов
+	* РџРѕР»РѕР¶РёС‚СЊ РІ С„Р°Р№Р» answers.json СЂРµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєРѕРІС‹С… Р·Р°РїСЂРѕСЃРѕРІ
 	*/
 	void putAnswers(std::vector<std::vector<RelativeIndex>>	answers);
 };

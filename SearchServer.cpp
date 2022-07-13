@@ -1,4 +1,4 @@
-
+п»ї
 #include "search_engine.h"
 #include "SearchServer.h"
 
@@ -16,7 +16,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
 	std::vector<std::vector<RelativeIndex>> ans;
 	std::vector<RelativeIndex> req_ans;
 	RelativeIndex ri;
-	std::map<std::string, int> uniq_word; // частотный	словарь
+	std::map<std::string, int> uniq_word; // С‡Р°СЃС‚РѕС‚РЅС‹Р№	СЃР»РѕРІР°СЂСЊ
 	std::map<size_t, size_t> abs_Index;
 
 	string s;

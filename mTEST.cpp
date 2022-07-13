@@ -1,6 +1,9 @@
-
+﻿
 #include "search_engine.h"
-#include "mTEST.h"
+#include "gtest/gtest.h"
+
+#include "InvertedIndex.h"
+#include "SearchServer.h"
 
 /*TEST(sample_test_case, sample_test)
 {

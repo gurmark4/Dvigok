@@ -15,13 +15,9 @@
 #include <cctype>
 #include <thread>
 #include <mutex>
-#include <direct.h>
-#include <windows.h>}
-//#include <POSIX.h>
 
 namespace N
 {
-
     struct RelativeIndex {
         size_t doc_id;
         float rank;
