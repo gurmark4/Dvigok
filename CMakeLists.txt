@@ -22,7 +22,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-add_subdirectory(nlohmann_json)
+# add_subdirectory(nlohmann_json)
+include(FetchContent)
+
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.10.5/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 
 # Добавьте источник в исполняемый файл этого проекта.
 add_executable (search_engine "search_engine.cpp" "search_engine.h" "ConverterJSON.cpp" "thdocs.cpp" "thdocs.h" "InvertedIndex.cpp" "InvertedIndex.h" "SearchServer.cpp" "SearchServer.h" "ConverterJSON.h")
